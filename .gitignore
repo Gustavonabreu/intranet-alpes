@@ -1,0 +1,16 @@
+# Pasta do Ambiente Virtual (A 'caixa de ferramentas' pessoal e pesada)
+venv/
+
+# Arquivos de cache do Python (A 'sujeira' que o Python deixa para trás)
+__pycache__/
+*.pyc
+
+# Banco de dados local (Seus dados de teste, não os dados oficiais)
+db.sqlite3
+
+# Arquivos de ambiente (para senhas e chaves secretas no futuro)
+.env
+
+# Pastas de arquivos de mídia e estáticos que o Django pode gerar
+/media/
+/static/
