@@ -75,3 +75,75 @@ p {
     font-size: 1rem;
     margin-top: 5px;
 }
+
+/* Adicione ao final de style.css */
+.logout-button {
+    background: none;
+    border: none;
+    color: #d9534f; /* Um tom de vermelho */
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1em;
+    padding: 0;
+}
+.logout-button:hover {
+    color: #333;
+}
+
+/* Estilos para o Quadro de Funcionários */
+.quadro-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card-funcionario {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card-funcionario h4 {
+    margin-top: 0;
+    color: #0056b3;
+}
+
+.card-funcionario .contato p {
+    font-size: 0.9em;
+    font-style: normal;
+    margin: 5px 0;
+    word-break: break-all;
+}
+
+/* Estilos do Header e Navegação */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.main-nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #0056b3;
+    font-weight: bold;
+}
+.main-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Adicione ao final de style.css */
+.foto-funcionario {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Deixa a foto redonda */
+    object-fit: cover;   /* Garante que a imagem preencha o círculo sem distorcer */
+    margin-bottom: 15px;
+    border: 3px solid #ddd;
+}

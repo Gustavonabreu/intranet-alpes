@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Intranet Alpes</title>
+    <link rel="stylesheet" href="{% static 'funcionarios/style.css' %}">
+    <style>
+        /* Estilos específicos para a página de login */
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .login-container { background: #fff; padding: 40px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
+        input { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 4px; }
+        button { width: 100%; padding: 10px; border: none; background-color: #0056b3; color: white; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #004494; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login da Intranet</h2>
+        <form method="post">
+            {% csrf_token %} {{ form.as_p }} <button type="submit">Entrar</button>
+        </form>
+    </div>
+</body>
+</html>

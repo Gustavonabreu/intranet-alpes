@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="page-header">
+    <h2>Quadro de Funcionários</h2>
+    <p>Conheça a equipe da Alpes!</p>
+</div>
+
+<div class="quadro-container">
+    {% for funcionario in funcionarios %}
+        <div class="card-funcionario">
+            {% if funcionario.foto %}
+                <img class="foto-funcionario" src="{{ funcionario.foto.url }}" alt="Foto de {{ funcionario.nome_completo }}">
+             {% else %}
+                    <img class="foto-funcionario" src="https://placehold.co/100x100" alt="Foto de {{ funcionario.nome_completo }}">
+            {% endif %}
+
+                <h4>{{ funcionario.nome_completo }}</h4>
+            <div class="contato">
+                <p><strong>Email:</strong> {{ funcionario.email }}</p>
+                <p><strong>WhatsApp:</strong> {{ funcionario.whatsapp }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Intranet Alpes</title>
+    <link rel="stylesheet" href="{% static 'funcionarios/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Intranet da Alpes</h1>
+
+        <nav class="main-nav">
+        <a href="{% url 'homepage' %}">Página Inicial</a>
+        <a href="{% url 'quadro_funcionarios' %}">Quadro de Funcionários</a>
+        </nav>
+        
+        {% if user.is_authenticated %}
+            <form action="{% url 'logout' %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <span style="margin-right: 10px;">Olá, {{ user.username }}!</span>
+                <button type="submit" class="logout-button">Sair</button>
+            </form>
+        {% endif %}
+    </header>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; {% now "Y" %} Alpes. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

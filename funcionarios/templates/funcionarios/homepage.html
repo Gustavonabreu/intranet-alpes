@@ -1,85 +1,48 @@
-{% load static %} <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Intranet Alpes</title>
-    <link rel="stylesheet" href="{% static 'funcionarios/style.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-</head>
+{% extends 'base.html' %}
 
-<body>
-    <h1>Intranet da Alpes</h1>
+{% block content %}
     <hr>
-
     <h2>Avisos Importantes</h2>
     {% for aviso in avisos %}
-    <div class="aviso">
-        <h3>{{ aviso.titulo }}</h3>
-        <p>{{ aviso.conteudo }}</p>
-        <small>Publicado em: {{ aviso.data_publicacao|date:"d/m/Y H:i" }}</small>
-    </div>
+        <div class="aviso">
+            <h3>{{ aviso.titulo }}</h3>
+            <p>{{ aviso.conteudo }}</p>
+            <small>Publicado em: {{ aviso.data_publicacao|date:"d/m/Y H:i" }}</small>
+        </div>
     {% endfor %}
 
-    <hr> <h2>Aniversariantes do Mês</h2>
+    <hr> 
+    <h2>Aniversariantes do Mês</h2>
 
     {% if aniversariantes %}
-    <div class="swiper">
-        <div class="swiper-wrapper">
-            {% for funcionario in aniversariantes %}
-            <div class="swiper-slide">
-                <strong>{{ funcionario.nome_completo }}</strong>
-                <p>Aniversário: {{ funcionario.data_nascimento.day }}/{{ funcionario.data_nascimento.month }}</p>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for funcionario in aniversariantes %}
+                <div class="swiper-slide">
+                    <strong>{{ funcionario.nome_completo }}</strong>
+                    <p>Aniversário: {{ funcionario.data_nascimento.day }}/{{ funcionario.data_nascimento.month }}</p>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
-        <div class="swiper-pagination"></div>
-
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
     {% else %}
-    <p>Nenhum aniversariante este mês.</p>
+        <p>Nenhum aniversariante este mês.</p>
     {% endif %}
+{% endblock %}
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  const swiper = new Swiper('.swiper', {
-    // --- Configurações Base (padrão para telas pequenas) ---
-    loop: false,
-    slidesPerView: 1,
-    slidesPerGroup: 1, // Em telas pequenas, rola de 1 em 1
-    spaceBetween: 30,
-
-    // Paginação (bolinhas)
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-
-    // Botões de navegação (setas)
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-    // --- Configurações para Telas Maiores (Sobrescrevem a base) ---
-    breakpoints: {
-      // quando a tela for maior ou igual a 768px
-      768: {
-        slidesPerView: 2,
-        slidesPerGroup: 2, // Em telas médias, mostra 2 e rola de 2 em 2
-        spaceBetween: 40
-      },
-      // quando a tela for maior ou igual a 1024px
-      1024: {
-        slidesPerView: 2,
-        slidesPerGroup: 2, // Em telas grandes, mostra 2 e rola de 2 em 2
-        spaceBetween: 50
-      }
-    }
-  });
-</script>
-
-</body>
-</html>
+{% block extra_js %}
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: false,
+            slidesPerGroup: 1,
+            // ... e todo o resto do seu script do Swiper ...
+            breakpoints: {
+              768: { slidesPerView: 2, slidesPerGroup: 2 },
+              1024: { slidesPerView: 2, slidesPerGroup: 2 }
+            }
+        });
+    </script>
+{% endblock %}
