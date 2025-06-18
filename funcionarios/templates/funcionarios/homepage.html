@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Intranet Alpes</title>
+</head>
+<body>
+    <h1>Intranet da Alpes</h1>
+    <hr>
+
+    <h2>Aniversariantes do Mês</h2>
+
+    {% if aniversariantes %}
+        <ul>
+            {% for funcionario in aniversariantes %}
+                <li>
+                    <strong>{{ funcionario.nome_completo }}</strong> - 
+                    Aniversário: {{ funcionario.data_nascimento.day }}/{{ funcionario.data_nascimento.month }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum aniversariante este mês.</p>
+    {% endif %}
+
+</body>
+</html>
