@@ -1,0 +1,77 @@
+/* funcionarios/static/funcionarios/style.css */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #e5e5e5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #0056b3; /* Um tom de azul */
+}
+
+h1 {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style-type: none; /* Remove as bolinhas da lista */
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Cantos arredondados */
+}
+
+p {
+    font-style: italic;
+    color: #666;
+}
+
+/* Adicione ao final de style.css */
+.aviso {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.aviso h3 {
+    margin-top: 0;
+    color: #d9534f; /* Um tom de vermelho */
+}
+
+/* Adicione ao final de style.css */
+.swiper {
+  width: 100%;
+  height: 150px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+
+  /* Centraliza o conteúdo no slide */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide p {
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 5px;
+}

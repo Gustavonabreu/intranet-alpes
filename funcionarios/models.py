@@ -10,3 +10,11 @@ class Funcionario(models.Model):
 
     def __str__(self):
         return self.nome_completo
+    
+class Aviso(models.Model):
+    titulo = models.CharField(max_length=100)
+    conteudo = models.TextField()
+    data_publicacao = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.titulo
