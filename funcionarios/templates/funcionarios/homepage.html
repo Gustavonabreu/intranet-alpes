@@ -12,10 +12,12 @@
     {% endfor %}
 
     <hr> 
+
+<section class="py-5">
     <h2>Aniversariantes do Mês</h2>
 
     {% if aniversariantes %}
-        <div class="swiper">
+        <div class="swiper-container">
             <div class="swiper-wrapper">
                 {% for funcionario in aniversariantes %}
                 <div class="swiper-slide">
@@ -31,18 +33,21 @@
     {% else %}
         <p>Nenhum aniversariante este mês.</p>
     {% endif %}
+</section>
+
 {% endblock %}
 
 {% block extra_js %}
     <script>
-        const swiper = new Swiper('.swiper', {
-            loop: false,
-            slidesPerGroup: 1,
-            // ... e todo o resto do seu script do Swiper ...
-            breakpoints: {
-              768: { slidesPerView: 2, slidesPerGroup: 2 },
-              1024: { slidesPerView: 2, slidesPerGroup: 2 }
-            }
-        });
+        if (document.querySelector('.swiper-container')) {
+        var swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow', grabCursor: true, centeredSlides: true,
+        slidesPerView: 'auto', loop: true,
+        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        coverflowEffect: { rotate: 30, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
+        pagination: { el: '.swiper-pagination', clickable: true },
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
+}
     </script>
 {% endblock %}

@@ -1,12 +1,13 @@
 /* funcionarios/static/funcionarios/style.css */
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background-color: #e5e5e5;
-    color: #333;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 20px;
+    padding: 0; 
+    font-family: 'Lato', sans-serif; 
+    background: color(white)
 }
 
 h1, h2 {
@@ -50,31 +51,20 @@ p {
     color: #d9534f; /* Um tom de vermelho */
 }
 
-/* Adicione ao final de style.css */
-.swiper {
-  width: 100%;
-  height: 150px;
-}
-
+/* CARROSSEL COM SWIPER.JS */
+.swiper-container { width: 100%; height: auto; padding-top: 50px; padding-bottom: 50px; }
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-
-  /* Centraliza o conteúdo no slide */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    background-position: center; background-size: cover;
+    width: 60%; transition: transform 0.4s ease, opacity 0.4s ease;
 }
-
-.swiper-slide p {
-    font-style: normal;
-    font-size: 1rem;
-    margin-top: 5px;
+.swiper-slide img {
+    display: block; width: 100%; height: 100%;
+    object-fit: cover; border-radius: 15px;
 }
+.swiper-slide:not(.swiper-slide-active) { transform: scale(0.8); opacity: 0.7; }
+.swiper-button-next, .swiper-button-prev { color: white; transform: scale(0.8); }
+.swiper-pagination-bullet { background: rgba(255, 255, 255, 0.5); width: 12px; height: 12px; }
+.swiper-pagination-bullet-active { background: white; }
 
 /* Adicione ao final de style.css */
 .logout-button {
@@ -98,8 +88,8 @@ p {
 }
 
 .card-funcionario {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #0d0404;
+    border: 1px solid #110303;
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -118,25 +108,6 @@ p {
     word-break: break-all;
 }
 
-/* Estilos do Header e Navegação */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #ddd;
-    margin-bottom: 20px;
-}
-
-.main-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #0056b3;
-    font-weight: bold;
-}
-.main-nav a:hover {
-    text-decoration: underline;
-}
 
 /* Adicione ao final de style.css */
 .foto-funcionario {
@@ -146,4 +117,16 @@ p {
     object-fit: cover;   /* Garante que a imagem preencha o círculo sem distorcer */
     margin-bottom: 15px;
     border: 3px solid #ddd;
+}
+
+/* BARRA DE NAVEGAÇÃO */
+nav.navbar-transparente {
+    padding: 15px 0px;
+    background: rgba(0,0,0,0.6);
+}
+.navbar-light .navbar-nav .nav-link { color: white; }
+.navbar-light .navbar-nav .nav-link:hover { color: #000000; }
+.navbar-light .navbar-toggler {
+    color: rgba(0, 0, 0, .5);
+    border-color: rgba(255, 255, 255,.1);
 }

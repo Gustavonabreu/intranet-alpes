@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="page-header">
+<div class="d-flex justify-content-between align-items-center mb-4">
     <h2>Quadro de Funcionários</h2>
-    <p>Conheça a equipe da Alpes!</p>
+    <p class="lead mb-0">Conheça a equipe da Alpes!</p>
 </div>
 
-<div class="quadro-container">
+<div class="row">
     {% for funcionario in funcionarios %}
-        <div class="card-funcionario">
-            {% if funcionario.foto %}
-                <img class="foto-funcionario" src="{{ funcionario.foto.url }}" alt="Foto de {{ funcionario.nome_completo }}">
-             {% else %}
-                    <img class="foto-funcionario" src="https://placehold.co/100x100" alt="Foto de {{ funcionario.nome_completo }}">
-            {% endif %}
-
-                <h4>{{ funcionario.nome_completo }}</h4>
-            <div class="contato">
-                <p><strong>Email:</strong> {{ funcionario.email }}</p>
-                <p><strong>WhatsApp:</strong> {{ funcionario.whatsapp }}</p>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 text-center">
+                {% if funcionario.foto %}
+                    <img src="{{ funcionario.foto.url }}" class="card-img-top" alt="Foto de {{ funcionario.nome_completo }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 20px auto 0;">
+                {% else %}
+                    <img src="https://placehold.co/120x120" class="card-img-top" alt="Foto de {{ funcionario.nome_completo }}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin: 20px auto 0;">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ funcionario.nome_completo }}</h5>
+                    <p class="card-text"><strong>Email:</strong> {{ funcionario.email }}</p>
+                    <p class="card-text"><strong>WhatsApp:</strong> {{ funcionario.whatsapp }}</p>
+                </div>
             </div>
         </div>
     {% endfor %}
